@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&amp;family=Tajawal:wght@400;500;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"background":"#f8faf1","error-container":"#ffdad6","outline":"#737872","tertiary-fixed":"#9df3df","surface-bright":"#f8faf1","on-secondary-fixed-variant":"#334d32","on-secondary":"#ffffff","surface-container-low":"#f3f5ec","tertiary":"#00231d","on-tertiary-fixed":"#00201b","surface-container-highest":"#e1e3db","tertiary-container":"#003b32","on-surface":"#191d17","on-error-container":"#93000a","surface-variant":"#e1e3db","on-surface-variant":"#434843","primary-fixed":"#d3e8d4","tertiary-fixed-dim":"#81d6c3","on-tertiary":"#ffffff","on-tertiary-container":"#55aa99","surface-dim":"#d9dbd2","on-primary-fixed":"#0e1f13","primary-container":"#26382a","on-primary-container":"#8da28f","surface-container":"#edefe6","secondary-fixed":"#ccebc7","error":"#ba1a1a","secondary":"#4a6549","surface":"#f8faf1","on-tertiary-fixed-variant":"#005045","on-secondary-container":"#4e694d","on-secondary-fixed":"#07200a","outline-variant":"#c3c8c1","surface-container-high":"#e7e9e0","inverse-primary":"#b7ccb8","inverse-on-surface":"#f0f2e9","on-primary":"#ffffff","secondary-fixed-dim":"#b0cfac","on-error":"#ffffff","primary":"#112216","on-primary-fixed-variant":"#394b3c","inverse-surface":"#2e312c","surface-container-lowest":"#ffffff","surface-tint":"#506353","on-background":"#191d17","secondary-container":"#c9e8c4","primary-fixed-dim":"#b7ccb8"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-md":"1rem","gutter-desktop":"1.5rem","gutter":"1rem","space-xl":"2rem","space-xs":"0.25rem","space-2xl":"3rem","space-lg":"1.5rem","margin-tablet":"2rem","space-sm":"0.5rem","margin":"1rem","margin-desktop":"3rem"},fontFamily:{"headline-sm":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"label-lg":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"headline-md":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"display-lg":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"headline-lg":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"body-lg":["Tajawal, Cairo, Plus Jakarta Sans, sans-serif"],"display-lg-mobile":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"headline-lg-mobile":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"body-md":["Tajawal, Cairo, Plus Jakarta Sans, sans-serif"],"label-sm":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"label-md":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"body-sm":["Tajawal, Cairo, Plus Jakarta Sans, sans-serif"]},fontSize:{"headline-sm":["18px",{lineHeight:"26px",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",fontWeight:"600"}],"headline-md":["20px",{lineHeight:"30px",fontWeight:"600"}],"display-lg":["36px",{lineHeight:"48px",fontWeight:"700"}],"headline-lg":["28px",{lineHeight:"38px",fontWeight:"700"}],"body-lg":["16px",{lineHeight:"26px",fontWeight:"500"}],"display-lg-mobile":["28px",{lineHeight:"38px",fontWeight:"700"}],"headline-lg-mobile":["22px",{lineHeight:"32px",fontWeight:"700"}],"body-md":["14px",{lineHeight:"22px",fontWeight:"400"}],"label-sm":["10px",{lineHeight:"14px",fontWeight:"500"}],"label-md":["12px",{lineHeight:"16px",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface"><aside class="fixed right-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col pt-space-lg pb-space-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="px-space-lg mb-space-xl flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[22px]">construction</span></div><div><span class="font-headline-sm text-headline-sm text-primary block leading-none">صنايعي</span><span class="font-label-sm text-label-sm text-secondary block mt-space-xs">منصة إدارة الخدمات</span></div></div></div><nav class="flex-1 px-space-md flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg"><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-label-lg text-label-lg">لوحة التحكم</span></div></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="worker-verification" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">verified_user</span><span class="font-label-lg text-label-lg">مراجعة توثيق الفنيين</span></div><span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">١٤ طلب</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="repair-requests" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">handyman</span><span class="font-label-lg text-label-lg">طلبات الصيانة</span></div></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="users-and-workers" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">group</span><span class="font-label-lg text-label-lg">المستخدمين والفنيين</span></div></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="reviews-and-disputes" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">gavel</span><span class="font-label-lg text-label-lg">التقييمات والنزاعات</span></div></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-label-lg text-label-lg">الإعدادات</span></div></a></nav><div class="px-space-md pt-space-md"><div class="p-space-md rounded-lg bg-surface-container flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-secondary text-[20px]">energy_savings_leaf</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface">حالة النظام</span><span class="font-label-sm text-label-sm text-secondary">مستقر ومتصل</span></div></div><div class="w-2.5 h-2.5 rounded-full bg-secondary"></div></div></div></aside><div class="pr-72"><header class="fixed top-0 left-0 right-72 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md w-96"><div class="relative w-full"><span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span><input class="w-full h-10 pr-9 pl-space-md rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline text-body-sm font-body-sm focus:outline-none focus:bg-surface-container-lowest transition-all" placeholder="بحث عن فني، عميل، أو طلب صيانة..." type="text"/></div></div><div class="flex items-center gap-space-md"><button class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 left-2 w-2 h-2 rounded-full bg-error"></span></button><div class="h-6 w-px bg-surface-container-high"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-left"><span class="font-label-md text-label-md text-on-surface block leading-tight text-right">أحمد النجار</span><span class="font-label-sm text-label-sm text-secondary block text-right">مشرف المنصة</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 bg-background min-h-screen px-space-lg py-space-lg"><div class="flex flex-col w-full">
+<!-- Active Navigation Sync for Shell (Reviews & Disputes) -->
+<script>
+    (function () {
+      const activeLink = document.querySelector('aside nav a[data-path="reviews-and-disputes"]');
+      if (activeLink) {
+        document.querySelectorAll('aside nav a').forEach(a => {
+          a.classList.remove('bg-primary-container', 'text-on-primary');
+          a.classList.add('text-on-surface-variant');
+        });
+        activeLink.classList.add('bg-primary-container', 'text-on-primary');
+        activeLink.classList.remove('text-on-surface-variant');
+      }
+    })();
+  </script>
+<!-- Top Page Header & Contextual Actions -->
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md mb-space-xl">
+<div>
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+          جودة المنصة والنزاهة
+        </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">مراجعة فورية ومباشرة</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">إدارة ومراجعة التقييمات</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-3xl">
+        متابعة تقييمات العملاء لجودة الخدمات، معالجة البلاغات، وإدارة ظهور التعليقات المخالفة لضمان بيئة عمل مهنية وعادلة.
+      </p>
+</div>
+<!-- Quick Action / Export Report -->
+<div class="flex items-center gap-space-sm self-start lg:self-auto">
+<button class="h-10 px-space-md rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>تصدير تقرير الجودة</span>
+</button>
+<button class="h-10 px-space-md rounded-lg bg-primary-container hover:bg-primary text-on-primary font-label-md text-label-md flex items-center gap-space-xs transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">rule_settings</span>
+<span>قواعد المراجعة التلقائية</span>
+</button>
+</div>
+</div>
+<!-- Key Metrics & Performance Highlights -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md mb-space-xl">
+<!-- Stat 1: Total Reviews -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">إجمالي التقييمات</span>
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">forum</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline justify-between">
+<span class="font-display-lg text-display-lg text-primary">٣,٨١٠</span>
+<span class="font-label-sm text-label-sm text-secondary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+          +١٢٪ هذا الشهر
+        </span>
+</div>
+<div class="mt-2 w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full w-full"></div>
+</div>
+</div>
+<!-- Stat 2: Average Rating with Star Radial -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">متوسط التقييم العام</span>
+<div class="w-9 h-9 rounded-lg bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline justify-between">
+<div class="flex items-baseline gap-1">
+<span class="font-display-lg text-display-lg text-primary">٤.٨</span>
+<span class="font-body-md text-body-md text-on-surface-variant">/ ٥.٠</span>
+</div>
+<div class="flex items-center text-[#8F6B12] gap-0.5">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">من أصل ٣,٧٩٢ طلب صيانة منجز</span>
+</div>
+<!-- Stat 3: Active Visible Reviews -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">التقييمات النشطة</span>
+<div class="w-9 h-9 rounded-lg bg-[#E8F4E8] flex items-center justify-center text-[#2E6B30]">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline justify-between">
+<span class="font-display-lg text-display-lg text-primary">٣,٧٨٦</span>
+<span class="px-space-xs py-0.5 rounded-full bg-[#E8F4E8] text-[#2E6B30] font-label-sm text-label-sm">
+          ٩٩.٤٪ معتمد
+        </span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-2">معروضة لعموم المستخدمين بالمنصة</span>
+</div>
+<!-- Stat 4: Hidden / Flagged Reviews -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">مخفية / قيد المراجعة</span>
+<div class="w-9 h-9 rounded-lg bg-[#FEF8E7] flex items-center justify-center text-[#8F6B12]">
+<span class="material-symbols-outlined text-[20px]">warning</span>
+</div>
+</div>
+<div class="mt-space-md flex items-baseline justify-between">
+<span class="font-display-lg text-display-lg text-primary">٢٤</span>
+<span class="px-space-xs py-0.5 rounded-full bg-[#FEF8E7] text-[#8F6B12] font-label-sm text-label-sm font-semibold">
+          ٤ بلاغات جديدة
+        </span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant mt-2 font-label-sm text-label-sm">
+<span>تم حجبها لمخالفة اللائحة</span>
+<span class="text-error font-semibold">تتطلب فحصاً</span>
+</div>
+</div>
+</div>
+<!-- Main Workspace: Filter & Controls Bar -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm mb-space-lg flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<!-- Search Inputs -->
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full h-11 pr-10 pl-space-md rounded-lg bg-surface-container-low text-on-surface text-body-sm font-body-sm placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all" id="reviewSearchInput" placeholder="ابحث باسم العميل، اسم الفني، رقم الطلب، أو كلمات في التعليق..." type="text"/>
+</div>
+<!-- Dropdown Filters Group -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Stars Filter -->
+<div class="relative">
+<select class="h-11 pr-space-md pl-9 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md appearance-none focus:outline-none focus:bg-surface-container-lowest cursor-pointer transition-all">
+<option value="all">تصنيف النجوم (الكل)</option>
+<option value="5">٥ نجوم (ممتاز)</option>
+<option value="4">٤ نجوم (جيد جداً)</option>
+<option value="3">٣ نجوم (متوسط)</option>
+<option value="2">نجمتان (دون التوقع)</option>
+<option value="1">نجمة واحدة (شكوى/سلبي)</option>
+</select>
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+<!-- Visibility Filter -->
+<div class="relative">
+<select class="h-11 pr-space-md pl-9 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md appearance-none focus:outline-none focus:bg-surface-container-lowest cursor-pointer transition-all">
+<option value="all">حالة الظهور (الكل)</option>
+<option value="visible">ظاهر للعامة</option>
+<option value="hidden">مخفي ومحجوب</option>
+<option value="disputed">بلاغات قيد النزاع</option>
+</select>
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+<!-- Date Range Filter -->
+<div class="relative">
+<select class="h-11 pr-space-md pl-9 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md appearance-none focus:outline-none focus:bg-surface-container-lowest cursor-pointer transition-all">
+<option value="all">كل الفترات الزمنية</option>
+<option value="today">اليوم</option>
+<option value="last7">آخر ٧ أيام</option>
+<option value="month">هذا الشهر</option>
+</select>
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">calendar_today</span>
+</div>
+<!-- Reset / Filter Button -->
+<button class="h-11 w-11 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" title="إعادة تعيين المرشحات" type="button">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+</button>
+</div>
+</div>
+<!-- Reviews Moderation Table Container -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden mb-space-2xl">
+<div class="p-space-lg flex items-center justify-between bg-surface-container-lowest">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-primary">سجل المراجعات والتقييمات</span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+          عرض ٥ من أصل ٣,٨١٠
+        </span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-[#E8F4E8]"></span>
+<span>أخضر = ظاهر</span>
+<span class="mx-1">•</span>
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-surface-dim"></span>
+<span>رمادي مضلل = مخفي ومحجوب</span>
+</div>
+</div>
+<!-- Responsive Table -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-right align-middle">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md">
+<th class="py-space-md px-space-lg font-semibold w-64">العميل</th>
+<th class="py-space-md px-space-md font-semibold w-72">الفني والخدمة</th>
+<th class="py-space-md px-space-md font-semibold w-36">التقييم</th>
+<th class="py-space-md px-space-lg font-semibold">محتوى التعليق</th>
+<th class="py-space-md px-space-md font-semibold w-36">التاريخ</th>
+<th class="py-space-md px-space-md font-semibold w-28 text-center">حالة الظهور</th>
+<th class="py-space-md px-space-lg font-semibold w-40 text-left">الإجراءات</th>
+</tr>
+</thead>
+<tbody class="text-body-md text-body-md">
+<!-- Row 1: Visible 5-Star Review -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-lg px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-headline-sm text-headline-sm">
+                  م
+                </div>
+<div>
+<span class="font-label-lg text-label-lg text-on-surface block leading-tight">مروان عبد العزيز</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">القاهرة، التجمع الخامس</span>
+</div>
+</div>
+</td>
+<td class="py-space-lg px-space-md">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-primary">م. سامح فوزي</span>
+<span class="px-space-xs py-0.5 rounded-full bg-[#E6F7F3] text-[#227B67] font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+                    موثّق
+                  </span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary block mt-0.5">كهرباء - صيانة لوحة قواطع</span>
+</div>
+</td>
+<td class="py-space-lg px-space-md">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center text-[#8F6B12]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">٥.٠ من ٥</span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg">
+<div class="relative bg-surface-container-low/70 rounded-lg p-space-sm pr-space-md">
+<span class="font-body-md text-body-md text-on-surface line-clamp-2">
+                  "التزام تام بالموعد المحدد وخبرة ممتازة، شخّص العطل في مفتاح التكييف الرئيسي بدقة وأصلحه بدون أي فوضى في المنزل. أنصح به بشدة."
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-md text-on-surface-variant font-label-md text-label-md">
+              اليوم، ٠٢:١٥ م
+            </td>
+<td class="py-space-lg px-space-md text-center">
+<span class="px-space-md py-1 rounded-full bg-[#E8F4E8] text-[#2E6B30] font-label-sm text-label-sm inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2E6B30]"></span>
+                ظاهر
+              </span>
+</td>
+<td class="py-space-lg px-space-lg text-left">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md inline-flex items-center gap-1" onclick="openHideModal('مروان عبد العزيز', 'م. سامح فوزي', '5', 'التزام تام بالموعد المحدد وخبرة ممتازة...')" type="button">
+<span class="material-symbols-outlined text-[16px] text-error">visibility_off</span>
+<span>إخفاء التقييم</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Target Flagged 1-Star Review (Interactive trigger for the open modal) -->
+<tr class="hover:bg-surface-container-low/60 transition-colors bg-[#FFF8F7]/50">
+<td class="py-space-lg px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-error-container text-on-error-container flex items-center justify-center font-headline-sm text-headline-sm">
+                  ك
+                </div>
+<div>
+<span class="font-label-lg text-label-lg text-on-surface block leading-tight">كريم ممدوح</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">الجيزة، الدقي</span>
+</div>
+</div>
+</td>
+<td class="py-space-lg px-space-md">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-primary">الأسطى أحمد الصاوي</span>
+<span class="px-space-xs py-0.5 rounded-full bg-[#E6F7F3] text-[#227B67] font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+                    موثّق
+                  </span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary block mt-0.5">سباكة - إصلاح تسريب وتغيير مواسير</span>
+</div>
+</td>
+<td class="py-space-lg px-space-md">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center text-[#8F6B12]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-error font-semibold">١.٠ من ٥ (مبلغ عنه)</span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg">
+<div class="relative bg-error-container/20 rounded-lg p-space-sm pr-space-md">
+<span class="font-body-md text-body-md text-on-surface block">
+                  "صنايعي غير أمين على الإطلاق وطلب مبالغ مضاعفة كاش خارج التطبيق وحصلت مشادة كلامية بألفاظ غير لائقة! لا أنصح بالتعامل معه نهائياً."
+                </span>
+<span class="mt-1 inline-flex items-center gap-1 font-label-sm text-label-sm text-error">
+<span class="material-symbols-outlined text-[14px]">flag</span>
+                  تم الإبلاغ عنه من قِبل الفني: عبارات مسيئة ونزاع مالي خارجي
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-md text-on-surface-variant font-label-md text-label-md">
+              أمس، ٠٨:٤٠ م
+            </td>
+<td class="py-space-lg px-space-md text-center">
+<span class="px-space-md py-1 rounded-full bg-[#FEF8E7] text-[#8F6B12] font-label-sm text-label-sm inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#8F6B12]"></span>
+                قيد الفحص
+              </span>
+</td>
+<td class="py-space-lg px-space-lg text-left">
+<button class="px-space-md py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary transition-all font-label-md text-label-md inline-flex items-center gap-1 shadow-sm" onclick="openHideModal('كريم ممدوح', 'الأسطى أحمد الصاوي', '1', 'صنايعي غير أمين على الإطلاق وطلب مبالغ مضاعفة كاش خارج التطبيق...')" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility_off</span>
+<span>إخفاء التقييم</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: CRITICAL REQUIREMENT - HIDDEN REVIEW (Visually Grayed Out & Strikethrough/Muted) -->
+<tr class="bg-surface-container-high/60 opacity-60 transition-all select-none">
+<td class="py-space-lg px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-dim text-on-surface-variant flex items-center justify-center font-headline-sm text-headline-sm">
+                  ع
+                </div>
+<div>
+<span class="font-label-lg text-label-lg text-on-surface-variant line-through block leading-tight">عمر الشناوي</span>
+<span class="font-label-sm text-label-sm text-outline block mt-0.5">الإسكندرية، سموحة</span>
+</div>
+</div>
+</td>
+<td class="py-space-lg px-space-md">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface-variant">الأسطى مجدي علام</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-dim text-outline font-label-sm text-label-sm">
+                    موثّق
+                  </span>
+</div>
+<span class="font-label-sm text-label-sm text-outline block mt-0.5">نجارة - تفصيل وتركيب أبواب</span>
+</div>
+</td>
+<td class="py-space-lg px-space-md">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center text-outline">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">١.٠ من ٥ (محجوب)</span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg">
+<div class="relative bg-surface-container rounded-lg p-space-sm pr-space-md">
+<span class="font-body-md text-body-md text-on-surface-variant italic line-through block">
+                  "تم حجب التعليق لاحتوائه على رقم هاتف شخصي ومحاولة توجيه العملاء إلى ورشة أخرى خارج نطاق المنصة..."
+                </span>
+<span class="mt-1 inline-flex items-center gap-1 font-label-sm text-label-sm text-outline">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                  مخفي بقرار إداري #LOG-9481 (بيانات اتصال شخصية)
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-md text-outline font-label-md text-label-md">
+              ٢٢ أكتوبر ٢٠٢٥
+            </td>
+<td class="py-space-lg px-space-md text-center">
+<span class="px-space-md py-1 rounded-full bg-surface-dim text-outline font-label-sm text-label-sm inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                مخفي
+              </span>
+</td>
+<td class="py-space-lg px-space-lg text-left">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md inline-flex items-center gap-1" onclick="restoreReviewRow(this)" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>إعادة الإظهار</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Visible 4-Star Review -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-lg px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant flex items-center justify-center font-headline-sm text-headline-sm">
+                  هـ
+                </div>
+<div>
+<span class="font-label-lg text-label-lg text-on-surface block leading-tight">هدى الألفي</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant block mt-0.5">القاهرة، المعادي</span>
+</div>
+</div>
+</td>
+<td class="py-space-lg px-space-md">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-primary">الأسطى حسن بدر</span>
+<span class="px-space-xs py-0.5 rounded-full bg-[#E6F7F3] text-[#227B67] font-label-sm text-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+                    موثّق
+                  </span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary block mt-0.5">دهانات ونقاشة - معالجة رطوبة</span>
+</div>
+</td>
+<td class="py-space-lg px-space-md">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center text-[#8F6B12]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">٤.٠ من ٥</span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg">
+<div class="relative bg-surface-container-low/70 rounded-lg p-space-sm pr-space-md">
+<span class="font-body-md text-body-md text-on-surface line-clamp-2">
+                  "شغل ممتاز ونظيف جداً، الفني محترم وراقى في التعامل. تأخر نصف ساعة عن الميعاد ولكن عوض ذلك بإتقان الدهان وتنسيق الألوان."
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-md text-on-surface-variant font-label-md text-label-md">
+              ٢٠ أكتوبر ٢٠٢٥
+            </td>
+<td class="py-space-lg px-space-md text-center">
+<span class="px-space-md py-1 rounded-full bg-[#E8F4E8] text-[#2E6B30] font-label-sm text-label-sm inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2E6B30]"></span>
+                ظاهر
+              </span>
+</td>
+<td class="py-space-lg px-space-lg text-left">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md inline-flex items-center gap-1" onclick="openHideModal('هدى الألفي', 'الأسطى حسن بدر', '4', 'شغل ممتاز ونظيف جداً...')" type="button">
+<span class="material-symbols-outlined text-[16px] text-error">visibility_off</span>
+<span>إخفاء التقييم</span>
+</button>
+</td>
+</tr>
+<!-- Row 5: Another Hidden Review Example (Greyed out) -->
+<tr class="bg-surface-container-high/60 opacity-60 transition-all select-none">
+<td class="py-space-lg px-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-dim text-on-surface-variant flex items-center justify-center font-headline-sm text-headline-sm">
+                  ط
+                </div>
+<div>
+<span class="font-label-lg text-label-lg text-on-surface-variant line-through block leading-tight">طارق زهران</span>
+<span class="font-label-sm text-label-sm text-outline block mt-0.5">القاهرة، مدينة نصر</span>
+</div>
+</div>
+</td>
+<td class="py-space-lg px-space-md">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface-variant">الأسطى وائل بركات</span>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-dim text-outline font-label-sm text-label-sm">
+                    موثّق
+                  </span>
+</div>
+<span class="font-label-sm text-label-sm text-outline block mt-0.5">تكييف وتبريد - شحن فريون</span>
+</div>
+</td>
+<td class="py-space-lg px-space-md">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center text-outline">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant">star</span>
+<span class="material-symbols-outlined text-[16px] text-outline-variant">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">٢.٠ من ٥ (محجوب)</span>
+</div>
+</td>
+<td class="py-space-lg px-space-lg">
+<div class="relative bg-surface-container rounded-lg p-space-sm pr-space-md">
+<span class="font-body-md text-body-md text-on-surface-variant italic line-through block">
+                  "ألفاظ جارحة وتشهير باسم عائلة الفني بشكل غير قانوني خارج سياق تقييم جودة الصيانة المنزلية..."
+                </span>
+<span class="mt-1 inline-flex items-center gap-1 font-label-sm text-label-sm text-outline">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                  مخفي بقرار إداري #LOG-9310 (إساءة وتشهير مباشر)
+                </span>
+</div>
+</td>
+<td class="py-space-lg px-space-md text-outline font-label-md text-label-md">
+              ١٨ أكتوبر ٢٠٢٥
+            </td>
+<td class="py-space-lg px-space-md text-center">
+<span class="px-space-md py-1 rounded-full bg-surface-dim text-outline font-label-sm text-label-sm inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                مخفي
+              </span>
+</td>
+<td class="py-space-lg px-space-lg text-left">
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md inline-flex items-center gap-1" onclick="restoreReviewRow(this)" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>إعادة الإظهار</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination Footer -->
+<div class="p-space-lg bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<span class="font-label-sm text-label-sm text-on-surface-variant">
+        عرض الصفحات: <span class="text-on-surface font-semibold">١ إلى ٥</span> من إجمالي <span class="text-on-surface font-semibold">٣,٨١٠</span> تقييماً
+      </span>
+<div class="flex items-center gap-space-xs">
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface flex items-center justify-center hover:bg-surface-container transition-colors disabled:opacity-50" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="w-9 h-9 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md flex items-center justify-center" type="button">
+          ١
+        </button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md flex items-center justify-center hover:bg-surface-container transition-colors" type="button">
+          ٢
+        </button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md flex items-center justify-center hover:bg-surface-container transition-colors" type="button">
+          ٣
+        </button>
+<span class="px-2 text-outline">...</span>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md flex items-center justify-center hover:bg-surface-container transition-colors" type="button">
+          ٧٦٢
+        </button>
+<button class="w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface flex items-center justify-center hover:bg-surface-container transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ======================================================== -->
+<!-- CONFIRMATION MODAL (Open / Centered Interactive Overlay)  -->
+<!-- ======================================================== -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-space-md bg-inverse-surface/40 backdrop-blur-sm transition-all duration-200" id="hideConfirmModal">
+<div class="w-full max-w-xl bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200 flex flex-col">
+<!-- Modal Header -->
+<div class="p-space-lg bg-surface-container-low flex items-start justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-lg bg-[#FEF8E7] flex items-center justify-center text-[#8F6B12]">
+<span class="material-symbols-outlined text-[24px]">visibility_off</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary">تأكيد إخفاء التقييم</h2>
+<span class="font-label-sm text-label-sm text-secondary">إجراء إداري لضبط جودة التعليقات العامة</span>
+</div>
+</div>
+<button class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" onclick="closeHideModal()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="p-space-lg space-y-space-md">
+<!-- Notice description -->
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          هل أنت متأكد من رغبتك في إخفاء هذا التقييم؟ <strong class="text-on-surface font-semibold">لن يظهر التقييم والتعليق في الملف الشخصي العام للفني</strong> أو صفحة تفاصيل الخدمة، ولكن سيبقى محفوظاً في سجلات الإدارة للرجوع إليه عند فض أي نزاع رسمي.
+        </p>
+<!-- Review Snippet Card inside modal -->
+<div class="p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between pb-space-xs mb-space-xs">
+<div class="flex items-center gap-space-sm">
+<span class="font-label-md text-label-md text-on-surface font-semibold" id="modalCustomerName">كريم ممدوح</span>
+<span class="text-outline text-label-sm font-label-sm">ضد</span>
+<span class="font-label-md text-label-md text-secondary" id="modalWorkerName">الأسطى أحمد الصاوي</span>
+</div>
+<div class="flex items-center text-[#8F6B12] gap-0.5">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface pr-1" id="modalRatingText">نجمة واحدة</span>
+</div>
+</div>
+<div class="p-space-sm rounded bg-surface-container-lowest text-on-surface-variant font-body-sm text-body-sm italic">
+<span class="text-outline font-serif font-bold text-base leading-none">“</span>
+<span id="modalReviewSnippet">صنايعي غير أمين على الإطلاق وطلب مبالغ مضاعفة كاش خارج التطبيق وحصلت مشادة كلامية بألفاظ غير لائقة! لا أنصح بالتعامل معه نهائياً.</span>
+<span class="text-outline font-serif font-bold text-base leading-none">”</span>
+</div>
+</div>
+<!-- Reason Selection (Radio buttons) -->
+<div>
+<label class="block font-label-md text-label-md text-primary font-semibold mb-space-sm">
+            حدد سبب الإخفاء أو الحجب:
+          </label>
+<div class="space-y-space-xs">
+<label class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer">
+<input checked="" class="w-4 h-4 accent-primary cursor-pointer" name="hideReason" type="radio" value="inappropriate"/>
+<span class="font-body-md text-body-md text-on-surface">ألفاظ غير لائقة أو إساءة مباشرة وتشهير</span>
+</label>
+<label class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer">
+<input class="w-4 h-4 accent-primary cursor-pointer" name="hideReason" type="radio" value="policy_violation"/>
+<span class="font-body-md text-body-md text-on-surface">مخالفة سياسة المنصة والاتفاق الخارجي كاش</span>
+</label>
+<label class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer">
+<input class="w-4 h-4 accent-primary cursor-pointer" name="hideReason" type="radio" value="pii"/>
+<span class="font-body-md text-body-md text-on-surface">بيانات اتصال أو أرقام هواتف ومعلومات شخصية بالتعليق</span>
+</label>
+<label class="flex items-center gap-space-sm p-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer">
+<input class="w-4 h-4 accent-primary cursor-pointer" name="hideReason" type="radio" value="other"/>
+<span class="font-body-md text-body-md text-on-surface">سبب آخر (تحدده في الملاحظات)</span>
+</label>
+</div>
+</div>
+<!-- Admin Internal Log Notes -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant font-medium mb-1">
+            ملاحظات الإدارة الداخلية (اختياري - تُحفظ في سجل التدقيق):
+          </label>
+<textarea class="w-full p-space-sm rounded-lg bg-surface-container-low text-on-surface text-body-sm font-body-sm placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all resize-none" placeholder="اكتب ملاحظاتك لزملائك المشرفين لتوضيح مبرر القرار..." rows="2"></textarea>
+</div>
+</div>
+<!-- Modal Footer Action Buttons -->
+<div class="p-space-lg bg-surface-container-low flex items-center justify-end gap-space-sm">
+<button class="h-11 px-space-lg rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-lg text-label-lg" onclick="closeHideModal()" type="button">
+          إلغاء وتراجع
+        </button>
+<button class="h-11 px-space-xl rounded-lg bg-error hover:bg-on-error-container text-on-error transition-all font-label-lg text-label-lg flex items-center gap-space-xs shadow-sm" onclick="executeHideReview()" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility_off</span>
+<span>تأكيد إخفاء التقييم</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Inline Micro-interactions and Modal Control Script -->
+<script>
+    function openHideModal(customer, worker, rating, snippet) {
+      const modal = document.getElementById('hideConfirmModal');
+      document.getElementById('modalCustomerName').textContent = customer;
+      document.getElementById('modalWorkerName').textContent = worker;
+      document.getElementById('modalRatingText').textContent = rating === '1' ? 'نجمة واحدة' : `${rating} نجوم`;
+      document.getElementById('modalReviewSnippet').textContent = snippet;
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeHideModal() {
+      const modal = document.getElementById('hideConfirmModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function executeHideReview() {
+      // Find the second row (the unhidden negative review) and apply the grayed out / hidden styling
+      const rows = document.querySelectorAll('tbody tr');
+      if (rows.length >= 2) {
+        const targetRow = rows[1];
+        targetRow.className = 'bg-surface-container-high/60 opacity-60 transition-all select-none';
+        
+        // Update status badge
+        const badgeCell = targetRow.children[5];
+        badgeCell.innerHTML = `
+          <span class="px-space-md py-1 rounded-full bg-surface-dim text-outline font-label-sm text-label-sm inline-flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+            مخفي
+          </span>
+        `;
+
+        // Update actions cell
+        const actionCell = targetRow.children[6];
+        actionCell.innerHTML = `
+          <button
+            type="button"
+            onclick="restoreReviewRow(this)"
+            class="px-space-md py-1.5 rounded-lg bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md inline-flex items-center gap-1"
+          >
+            <span class="material-symbols-outlined text-[16px]">visibility</span>
+            <span>إعادة الإظهار</span>
+          </button>
+        `;
+      }
+      closeHideModal();
+    }
+
+    function restoreReviewRow(btn) {
+      const row = btn.closest('tr');
+      if (row) {
+        row.className = 'hover:bg-surface-container-low/60 transition-colors';
+        row.classList.remove('opacity-60', 'bg-surface-container-high/60', 'select-none');
+        
+        // Remove line-through styling from names and comments in row
+        row.querySelectorAll('.line-through').forEach(el => el.classList.remove('line-through'));
+
+        const badgeCell = row.children[5];
+        badgeCell.innerHTML = `
+          <span class="px-space-md py-1 rounded-full bg-[#E8F4E8] text-[#2E6B30] font-label-sm text-label-sm inline-flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#2E6B30]"></span>
+            ظاهر
+          </span>
+        `;
+
+        const actionCell = row.children[6];
+        actionCell.innerHTML = `
+          <button
+            type="button"
+            onclick="openHideModal('مستخدم مسترجع', 'فني معتمد', '3', 'تمت إعادة إظهار التقييم بعد التدقيق')"
+            class="px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md inline-flex items-center gap-1"
+          >
+            <span class="material-symbols-outlined text-[16px] text-error">visibility_off</span>
+            <span>إخفاء التقييم</span>
+          </button>
+        `;
+      }
+    }
+  </script>
+</div></main></div></body></html>

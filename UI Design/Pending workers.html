@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&amp;family=Tajawal:wght@400;500;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"background":"#f8faf1","error-container":"#ffdad6","outline":"#737872","tertiary-fixed":"#9df3df","surface-bright":"#f8faf1","on-secondary-fixed-variant":"#334d32","on-secondary":"#ffffff","surface-container-low":"#f3f5ec","tertiary":"#00231d","on-tertiary-fixed":"#00201b","surface-container-highest":"#e1e3db","tertiary-container":"#003b32","on-surface":"#191d17","on-error-container":"#93000a","surface-variant":"#e1e3db","on-surface-variant":"#434843","primary-fixed":"#d3e8d4","tertiary-fixed-dim":"#81d6c3","on-tertiary":"#ffffff","on-tertiary-container":"#55aa99","surface-dim":"#d9dbd2","on-primary-fixed":"#0e1f13","primary-container":"#26382a","on-primary-container":"#8da28f","surface-container":"#edefe6","secondary-fixed":"#ccebc7","error":"#ba1a1a","secondary":"#4a6549","surface":"#f8faf1","on-tertiary-fixed-variant":"#005045","on-secondary-container":"#4e694d","on-secondary-fixed":"#07200a","outline-variant":"#c3c8c1","surface-container-high":"#e7e9e0","inverse-primary":"#b7ccb8","inverse-on-surface":"#f0f2e9","on-primary":"#ffffff","secondary-fixed-dim":"#b0cfac","on-error":"#ffffff","primary":"#112216","on-primary-fixed-variant":"#394b3c","inverse-surface":"#2e312c","surface-container-lowest":"#ffffff","surface-tint":"#506353","on-background":"#191d17","secondary-container":"#c9e8c4","primary-fixed-dim":"#b7ccb8"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-md":"1rem","gutter-desktop":"1.5rem","gutter":"1rem","space-xl":"2rem","space-xs":"0.25rem","space-2xl":"3rem","space-lg":"1.5rem","margin-tablet":"2rem","space-sm":"0.5rem","margin":"1rem","margin-desktop":"3rem"},fontFamily:{"headline-sm":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"label-lg":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"headline-md":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"display-lg":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"headline-lg":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"body-lg":["Tajawal, Cairo, Plus Jakarta Sans, sans-serif"],"display-lg-mobile":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"headline-lg-mobile":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"body-md":["Tajawal, Cairo, Plus Jakarta Sans, sans-serif"],"label-sm":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"label-md":["Cairo, Tajawal, Plus Jakarta Sans, sans-serif"],"body-sm":["Tajawal, Cairo, Plus Jakarta Sans, sans-serif"]},fontSize:{"headline-sm":["18px",{lineHeight:"26px",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",fontWeight:"600"}],"headline-md":["20px",{lineHeight:"30px",fontWeight:"600"}],"display-lg":["36px",{lineHeight:"48px",fontWeight:"700"}],"headline-lg":["28px",{lineHeight:"38px",fontWeight:"700"}],"body-lg":["16px",{lineHeight:"26px",fontWeight:"500"}],"display-lg-mobile":["28px",{lineHeight:"38px",fontWeight:"700"}],"headline-lg-mobile":["22px",{lineHeight:"32px",fontWeight:"700"}],"body-md":["14px",{lineHeight:"22px",fontWeight:"400"}],"label-sm":["10px",{lineHeight:"14px",fontWeight:"500"}],"label-md":["12px",{lineHeight:"16px",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",fontWeight:"400"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface"><aside class="fixed right-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col pt-space-lg pb-space-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="px-space-lg mb-space-xl flex items-center justify-between"><div class="flex items-center gap-space-sm"><div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[22px]">construction</span></div><div><span class="font-headline-sm text-headline-sm text-primary block leading-none">صنايعي</span><span class="font-label-sm text-label-sm text-secondary block mt-space-xs">منصة إدارة الخدمات</span></div></div></div><nav class="flex-1 px-space-md flex flex-col gap-space-xs" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-lg"><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="dashboard" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="font-label-lg text-label-lg">لوحة التحكم</span></div></a><a aria-current="page" class="flex items-center justify-between px-space-md py-space-sm transition-all bg-primary-container text-on-primary font-label-lg rounded-lg" data-path="worker-verification" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">verified_user</span><span class="font-label-lg text-label-lg">مراجعة توثيق الفنيين</span></div><span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">١٤ طلب</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="repair-requests" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">handyman</span><span class="font-label-lg text-label-lg">طلبات الصيانة</span></div></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="users-and-workers" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">group</span><span class="font-label-lg text-label-lg">المستخدمين والفنيين</span></div></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="reviews-and-disputes" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">gavel</span><span class="font-label-lg text-label-lg">التقييمات والنزاعات</span></div></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" data-path="settings" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">settings</span><span class="font-label-lg text-label-lg">الإعدادات</span></div></a></nav><div class="px-space-md pt-space-md"><div class="p-space-md rounded-lg bg-surface-container flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-secondary text-[20px]">energy_savings_leaf</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-on-surface">حالة النظام</span><span class="font-label-sm text-label-sm text-secondary">مستقر ومتصل</span></div></div><div class="w-2.5 h-2.5 rounded-full bg-secondary"></div></div></div></aside><div class="pr-72"><header class="fixed top-0 left-0 right-72 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-md w-96"><div class="relative w-full"><span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span><input class="w-full h-10 pr-9 pl-space-md rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline text-body-sm font-body-sm focus:outline-none focus:bg-surface-container-lowest transition-all" placeholder="بحث عن فني، عميل، أو طلب صيانة..." type="text"/></div></div><div class="flex items-center gap-space-md"><button class="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all relative" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 left-2 w-2 h-2 rounded-full bg-error"></span></button><div class="h-6 w-px bg-surface-container-high"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="text-left"><span class="font-label-md text-label-md text-on-surface block leading-tight text-right">أحمد النجار</span><span class="font-label-sm text-label-sm text-secondary block text-right">مشرف المنصة</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 bg-background min-h-screen px-space-lg py-space-lg"><div class="flex flex-col w-full">
+<!-- Top Breadcrumbs & Page Action Header -->
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-space-md mb-space-lg">
+<div>
+<nav class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md mb-space-xs">
+<a class="hover:text-primary transition-colors" href="#">لوحة الإدارة</a>
+<span class="material-symbols-outlined text-[14px]">chevron_left</span>
+<a class="hover:text-primary transition-colors" href="#">توثيق الحسابات</a>
+<span class="material-symbols-outlined text-[14px]">chevron_left</span>
+<span class="text-primary font-semibold">الطلبات المعلقة</span>
+</nav>
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">طلبات توثيق الفنيين المعلقة</h1>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-bold shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+          ١٨ طلب قيد الانتظار
+        </span>
+</div>
+</div>
+<!-- Live Status & Refresh Batch Indicator -->
+<div class="flex items-center gap-space-sm">
+<div class="hidden sm:flex items-center gap-space-xs px-3 py-2 rounded-lg bg-surface-container-low text-on-surface-variant font-label-md text-label-md shadow-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">update</span>
+<span>آخر تحديث: منذ دقيقتين</span>
+</div>
+<button class="flex items-center gap-space-xs px-4 py-2.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+<span>تحديث القائمة</span>
+</button>
+</div>
+</div>
+<!-- KPI Metrix Grid (Craft & Organic Calm Style) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-lg">
+<!-- Stat 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mb-1">طلبات بانتظار الفحص</span>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-primary leading-none">١٨</span>
+<span class="font-label-sm text-label-sm text-error font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">priority_high</span>
+            عالي الأولوية
+          </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-2">منها ٦ طلبات من الصباح</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">hourglass_top</span>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mb-1">تم فحصها اليوم</span>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-primary leading-none">٢٤</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+            +١٢٪
+          </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-2">مقارنة بـ ٢١ بالأمس</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-primary-fixed text-on-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">fact_check</span>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mb-1">نسبة القبول العامة</span>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-primary leading-none">٨٨٪</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">جودة عالية</span>
+</div>
+<div class="w-28 h-1.5 bg-surface-container-high rounded-full mt-2.5 overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 88%;"></div>
+</div>
+</div>
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">verified</span>
+</div>
+</div>
+<!-- Stat 4 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider mb-1">متوسط وقت المراجعة</span>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-primary leading-none">٤٥</span>
+<span class="font-body-md text-body-md text-on-surface-variant">دقيقة</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-2">ضمن المعدل المستهدف (أقل من ساعة)</span>
+</div>
+<div class="w-12 h-12 rounded-xl bg-surface-container-high text-on-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]">timer</span>
+</div>
+</div>
+</div>
+<!-- Search, Filter & View Controls -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm mb-space-lg flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- Search Field -->
+<div class="relative flex-1 min-w-[280px]">
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full h-11 pr-10 pl-4 rounded-lg bg-surface-container-low text-on-surface placeholder:text-outline text-body-md font-body-md focus:outline-none focus:bg-surface-container-lowest shadow-inner transition-all" placeholder="البحث باسم الفني، أو الرقم القومي (١٤ رقم)..." type="text"/>
+</div>
+<!-- Filters Strip -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Profession Filter -->
+<div class="flex items-center gap-1 p-1 bg-surface-container-low rounded-lg text-body-sm font-body-sm text-on-surface-variant">
+<button class="px-3 py-1.5 rounded-md bg-surface-container-lowest text-primary font-semibold shadow-xs" type="button">الكل</button>
+<button class="px-3 py-1.5 rounded-md hover:text-on-surface transition-colors" type="button">سباكة</button>
+<button class="px-3 py-1.5 rounded-md hover:text-on-surface transition-colors" type="button">كهرباء</button>
+<button class="px-3 py-1.5 rounded-md hover:text-on-surface transition-colors" type="button">نجارة</button>
+<button class="px-3 py-1.5 rounded-md hover:text-on-surface transition-colors" type="button">نقاشة</button>
+</div>
+<!-- Date Dropdown -->
+<div class="relative">
+<button class="flex items-center gap-2 h-11 px-3.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container transition-colors text-body-sm font-body-sm" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">calendar_today</span>
+<span>كل التواريخ</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</button>
+</div>
+<!-- Quick Export / Options -->
+<button class="h-11 w-11 flex items-center justify-center rounded-lg bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-colors" title="خيارات إضافية" type="button">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Verification Pending Queue Table -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden mb-space-xl">
+<div class="p-space-md bg-surface-container-low/60 flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">badge</span>
+<h2 class="font-headline-sm text-headline-sm text-primary">جدول الفنيين قيد الانتظار</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">يتم الفرز حسب أقدمية التقديم أولاً</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-right">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="py-3.5 px-space-md">الفني وبيانات الهوية</th>
+<th class="py-3.5 px-space-md">المهنة / التخصص</th>
+<th class="py-3.5 px-space-md">تاريخ ووقت التقديم</th>
+<th class="py-3.5 px-space-md">المنطقة الجغرافية</th>
+<th class="py-3.5 px-space-md text-center">الحالة</th>
+<th class="py-3.5 px-space-md text-center">الإجراء</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container font-body-md text-body-md">
+<!-- Row 1: Active Row (Saber Abdelrahman) -->
+<tr class="bg-primary-fixed/20 hover:bg-primary-fixed/30 transition-colors">
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative shrink-0">
+<img class="w-11 h-11 rounded-lg object-cover shadow-xs" data-alt="Close-up professional portrait of a 42-year-old Egyptian craftsman named Saber with honest warm eyes, wearing an olive polo shirt against a subtle textured background with soft natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmrcX6Yk_EINbwVVJpAb8cftTlcNyc3K0HpcT_1dCSPWnDRqLkb7bsEy7V7V8ztSy36RUnmiNNAzKQ9AAdSCYFj8Gad6rfmhlbCX3aA6_1xaaqAwkG4XjYzSO9jd3kQQWfHz8Wmn4g4R6qSYibuij5lwRxTmygccX3yD-flaDD-icz3Id_wxX0tvD6T6JnCqgLzBTnVB-nhIWB95ciWmfNUtldB3iLJgoYpKM8V_g"/>
+<span class="absolute -bottom-1 -left-1 w-3.5 h-3.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest" title="نشط حالياً"></span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-[16px] text-primary font-bold truncate">الأسطى صابر عبد الرحمن مصطفى</span>
+<span class="px-2 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-[10px]">مفتوح الآن</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5 font-mono">الرقم القومي: 29108150102345</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary-container text-on-secondary-container font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span>كهرباء وتأسيس منازل</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="text-primary font-medium">اليوم، 12:45 م</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">منذ ٤٥ دقيقة</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
+<span>القاهرة الجديدة، التجمع الخامس</span>
+</div>
+</td>
+<td class="py-4 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                قيد المراجعة
+              </span>
+</td>
+<td class="py-4 px-space-md text-center">
+<button class="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary transition-all font-label-md text-label-md shadow-sm" onclick="document.getElementById('verificationModal').classList.remove('hidden')" type="button">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>مراجعة</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Ibrahim Kamal -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative shrink-0">
+<img class="w-11 h-11 rounded-lg object-cover shadow-xs" data-alt="Portrait photograph of an Egyptian plumber in his mid-30s wearing working clothes, standing calmly in a brightly lit environment, natural skin tones and gentle focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYYnD2wFlToXlY8510nk2WoTDdVQEMh2h70gZqAgthfH3D5gWpnOd7fepOvrcUpwDrdLNnHoFySDmdwNFBrxSDQZR-_TFTLsBklWgGdjC9AWbkTc8pbJq4wBjitrwa1tSiDInzunRNmTxQfLNs64tlXME6I1sSn5xF1hLz5WceadRFaix7X2SDu9WcEpSdLf8kIqbEgw6bNFXGDWRjSUnSgrve6D5zN-HrWoymnng"/>
+</div>
+<div class="min-w-0">
+<span class="font-headline-sm text-[16px] text-primary font-bold truncate block">إبراهيم كمال الشناوي</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5 font-mono">الرقم القومي: 28802141401872</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary">plumbing</span>
+<span>سباكة وأدوات صحية</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="text-primary font-medium">اليوم، 11:20 ص</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">منذ ساعتين و ١٠ دقائق</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
+<span>الجيزة، حي الدقي والمهندسين</span>
+</div>
+</td>
+<td class="py-4 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                قيد الانتظار
+              </span>
+</td>
+<td class="py-4 px-space-md text-center">
+<button class="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-all font-label-md text-label-md" onclick="document.getElementById('verificationModal').classList.remove('hidden')" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span>فحص</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Mahmoud El Sayed -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative shrink-0">
+<img class="w-11 h-11 rounded-lg object-cover shadow-xs" data-alt="Portrait of an experienced Egyptian carpenter in his late forties with a friendly welcoming face, wearing clean working attire in an artisanal workshop setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4fkqMeeDfSO_06uWpcCVNN-ZE4iyFR_DymV817ou6u42kEZSXIyPItkZcNR53Liz6gXoENrrmNm2gGk7FPEzyaGo9YKryaufI9OsNjY5MJ1mhRHiSHgfxEfiOsn5ySfYO2MMoSFA3sGDtVBrX2tyyTh1UWyR5Q2IaDSt1uM9-mWXw7UGh4OqPGLCydx9sJvWXz4ZUvhwYeT7ihGPoWPk93MGaB87icz9Tm2siiVM"/>
+</div>
+<div class="min-w-0">
+<span class="font-headline-sm text-[16px] text-primary font-bold truncate block">محمود السيد عبد العال</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5 font-mono">الرقم القومي: 27911050204910</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary">carpenter</span>
+<span>نجارة وأثاث منزلي</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="text-primary font-medium">اليوم، 09:10 ص</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">منذ ٤ ساعات</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
+<span>مدينة نصر، الحي السابع</span>
+</div>
+</td>
+<td class="py-4 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                قيد الانتظار
+              </span>
+</td>
+<td class="py-4 px-space-md text-center">
+<button class="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-all font-label-md text-label-md" onclick="document.getElementById('verificationModal').classList.remove('hidden')" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span>فحص</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Farid Fathi -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative shrink-0">
+<div class="w-11 h-11 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-bold text-headline-sm">
+                    ف
+                  </div>
+</div>
+<div class="min-w-0">
+<span class="font-headline-sm text-[16px] text-primary font-bold truncate block">فريد فتحي الدسوقي</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5 font-mono">الرقم القومي: 29506201509823</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-surface-container-high text-on-surface font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary">format_paint</span>
+<span>نقاشة وديكورات</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex flex-col">
+<span class="text-primary font-medium">أمس، 07:30 م</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">منذ ١٨ ساعة</span>
+</div>
+</td>
+<td class="py-4 px-space-md">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
+<span>المعادي، زهراء المعادي</span>
+</div>
+</td>
+<td class="py-4 px-space-md text-center">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                قيد الانتظار
+              </span>
+</td>
+<td class="py-4 px-space-md text-center">
+<button class="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-all font-label-md text-label-md" onclick="document.getElementById('verificationModal').classList.remove('hidden')" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span>فحص</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Count Footer -->
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">عرض ١ إلى ٤ من أصل ١٨ طلب تحقق</span>
+<div class="flex items-center gap-1">
+<button class="h-8 px-3 rounded bg-surface-container-lowest text-primary font-bold shadow-xs" type="button">١</button>
+<button class="h-8 px-3 rounded hover:bg-surface-container text-on-surface-variant transition-colors" type="button">٢</button>
+<button class="h-8 px-3 rounded hover:bg-surface-container text-on-surface-variant transition-colors" type="button">٣</button>
+<button class="h-8 px-3 rounded hover:bg-surface-container text-on-surface-variant transition-colors" type="button">٤</button>
+</div>
+</div>
+</div>
+<!-- Review Modal Overlay (Modal Dialog Opened as per Prompt Specification) -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-space-md sm:p-space-lg overflow-y-auto bg-primary/60 backdrop-blur-sm transition-all duration-300" id="verificationModal">
+<div class="relative w-full max-w-5xl rounded-2xl bg-surface-container-lowest shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
+<!-- Modal Top Header -->
+<div class="p-space-lg bg-surface-container-low flex items-start justify-between shrink-0">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[28px]">verified_user</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<h2 class="font-headline-md text-headline-md text-primary">مراجعة وثائق الفني: صابر عبد الرحمن مصطفى</h2>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+                كهربائي منازل وتأسيس
+              </span>
+</div>
+<div class="flex items-center gap-space-md mt-1 font-body-sm text-body-sm text-on-surface-variant flex-wrap">
+<span class="font-mono text-primary font-semibold">الرقم القومي: 29108150102345</span>
+<span>•</span>
+<span>تاريخ التقديم: اليوم، 12:45 مساءً</span>
+<span>•</span>
+<span class="text-secondary font-medium">سجل الحساب: جديد (أول توثيق)</span>
+</div>
+</div>
+</div>
+<!-- Close Button -->
+<button class="w-9 h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors" onclick="document.getElementById('verificationModal').classList.add('hidden')" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Scrollable Modal Content Body -->
+<div class="p-space-lg overflow-y-auto space-y-space-lg">
+<!-- AI/Automated Match Diagnostics Checklist -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm p-space-md rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-space-xs text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span>تطابق ملامح الوجه (مؤشر ٩٦٪)</span>
+</div>
+<div class="flex items-center gap-space-xs text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span>وضوح بيانات الرقم القومي (مقروء)</span>
+</div>
+<div class="flex items-center gap-space-xs text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+<span>سريان تاريخ البطاقة (صالحة حتى ٢٠٢٨)</span>
+</div>
+</div>
+<!-- Side-by-Side Comparison Container -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+<!-- Side 1: Egyptian National ID Card Mockup -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">id_card</span>
+<span class="font-headline-sm text-[16px] text-primary font-bold">صورة بطاقة الرقم القومي (الوجهان)</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded bg-surface-container text-on-surface-variant hover:text-on-surface text-[14px]" title="تكبير" type="button">
+<span class="material-symbols-outlined text-[18px]">zoom_in</span>
+</button>
+<button class="p-1.5 rounded bg-surface-container text-on-surface-variant hover:text-on-surface text-[14px]" title="تدوير" type="button">
+<span class="material-symbols-outlined text-[18px]">rotate_right</span>
+</button>
+</div>
+</div>
+<!-- ID Front Preview Box -->
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm relative overflow-hidden flex flex-col gap-space-sm">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">الوجه الأمامي (بيانات الهوية الرسمية):</span>
+<!-- Realistic Stylized Egyptian ID Card Element -->
+<div class="p-4 rounded-xl bg-gradient-to-br from-surface-container-lowest to-surface-container-high/40 shadow-sm relative">
+<div class="flex items-start justify-between pb-3">
+<div>
+<span class="font-label-sm text-[11px] text-primary block font-bold">جمهورية مصر العربية</span>
+<span class="font-label-sm text-[9px] text-on-surface-variant block">وزارة الداخلية - قطاع مصلحة الأحوال المدنية</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-secondary-container/60 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[18px]">shield</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-3 items-center">
+<div class="col-span-1">
+<img class="w-20 h-24 rounded-lg object-cover shadow-inner" data-alt="Official identification photograph crop of an Egyptian man in his 40s against a neutral plain studio passport background, clean lighting, clear facial features." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUh9UnJJ6Y76gs7JbHRYu0cla1NPplH6hsynEz85mlzeaJX4A4fjbYRmdSHOM5LTJ3SioK59OUkQvWp9m7Spep0sf0FoEgqSJTD8gRydBTOcTSihjaEtCOXLplpnEp70SjMWh_LCV1_p0IviEW1lilcewIFUXuFNBFV1_gDfu6adiuCJPrenD_wEe5c1DhFXRtRu61QT9TsePUF-_jNRVTouKENNxzfJLvjF-HdwM"/>
+</div>
+<div class="col-span-2 space-y-1.5 text-right font-body-sm text-[13px]">
+<div>
+<span class="text-on-surface-variant block text-[10px]">الاسم:</span>
+<span class="font-bold text-primary block leading-tight">صابر عبد الرحمن مصطفى</span>
+</div>
+<div>
+<span class="text-on-surface-variant block text-[10px]">العنوان:</span>
+<span class="text-on-surface text-[12px] block">١٤ شارع النصر، التجمع الخامس، القاهرة</span>
+</div>
+<div>
+<span class="text-on-surface-variant block text-[10px]">الرقم القومي:</span>
+<span class="font-mono text-primary font-bold text-[14px] tracking-wider block">29108150102345</span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 flex items-center justify-between text-[10px] text-on-surface-variant">
+<span>تاريخ الميلاد: ١٥/٠٨/١٩٩١</span>
+<span>تاريخ الانتهاء: ٠٥/٢٠٢٨</span>
+</div>
+</div>
+<!-- ID Back Mini Strip -->
+<div class="p-3 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-between font-label-md text-label-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">flip</span>
+<span>الوجه الخلفي: المهنة: حاصل على دبلوم صنايع قسم كهرباء</span>
+</div>
+<span class="text-secondary font-semibold font-mono text-[12px]">الرمز: EG-44910</span>
+</div>
+</div>
+</div>
+<!-- Side 2: Live Selfie Verification -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">face</span>
+<span class="font-headline-sm text-[16px] text-primary font-bold">الصورة الشخصية الحالية (سيلفي للتحقق)</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-medium">
+                التقطت مباشرة عبر التطبيق
+              </span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low shadow-sm relative overflow-hidden flex flex-col gap-space-sm h-full">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">صورة فورية حية ممسكاً ببطاقة الرقم القومي:</span>
+<div class="relative w-full h-[230px] rounded-xl overflow-hidden shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A candid verification selfie portrait of an Egyptian worker in his early 40s holding up his Egyptian national ID card beside his face, with bright natural ambient light and crisp authentic focus on both face and card." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk5xtc37u79b8snKJBQU-RFuJl0TSrOI6O3T8qbJfXj-OpZsJka6WFuTCNVyThxkJ6q90aZksH8Wj6INx3uRJz7ZhYrhggjOwyK2XpkPEErRmJJ2JFDoopi-IduskjuHMreC1HucKcapQ0SxncqZqMtH110jaNSIuYAFvurZrO1mwxH9d1Fi85NnJM0roQIIT2gcaAYOR4tXeylLKFriZBDT1FUzVB11hASqTZr_E"/>
+<!-- Live Capture Geotag Overlay -->
+<div class="absolute bottom-2 right-2 left-2 p-2 rounded-lg bg-primary/75 backdrop-blur-md text-on-primary flex items-center justify-between font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed">location_on</span>
+<span>القاهرة (إحداثيات GPS متطابقة)</span>
+</div>
+<span class="font-mono text-tertiary-fixed">12:44:18 PM</span>
+</div>
+</div>
+<!-- Liveness Detector Note -->
+<div class="p-2.5 rounded-lg bg-surface-container-high/60 flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">document_scanner</span>
+<span>تم اجتياز اختبار الحيوية (Liveness Test) بنجاح دون وجود أي تعديل رقمي.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Decision Box: Rejection Reason Required Flow Section -->
+<div class="p-space-md rounded-xl bg-error-container/40 space-y-space-sm" id="rejectionSection">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface flex items-center gap-2" for="rejectionReason">
+<span class="material-symbols-outlined text-error text-[20px]">warning</span>
+<span>سبب رفض الطلب (يُرسل في إشعار للفني):</span>
+</label>
+<span class="font-label-sm text-label-sm text-error font-medium">* مطلوب في حالة الضغط على الرفض</span>
+</div>
+<!-- Quick Rejection Tags -->
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">أسباب سريعة شائعة:</span>
+<button class="px-2.5 py-1 rounded-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm shadow-2xs" onclick="document.getElementById('rejectionReason').value = 'صورة بطاقة الرقم القومي غير واضحة أو غير مكتملة الأركان، يرجى إعادة التقاط الصورة بضوء طبيعي واضح.'" type="button">
+              صورة البطاقة غير واضحة
+            </button>
+<button class="px-2.5 py-1 rounded-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm shadow-2xs" onclick="document.getElementById('rejectionReason').value = 'بطاقة الرقم القومي منتهية الصلاحية، يرجى تجديد البطاقة أو تقديم مستند سارٍ.'" type="button">
+              انتهاء صلاحية البطاقة
+            </button>
+<button class="px-2.5 py-1 rounded-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm shadow-2xs" onclick="document.getElementById('rejectionReason').value = 'عدم تطابق الصورة الشخصية الحالية مع الصورة الموجودة ببطاقة الهوية.'" type="button">
+              عدم تطابق الصورة الشخصية
+            </button>
+<button class="px-2.5 py-1 rounded-md bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm shadow-2xs" onclick="document.getElementById('rejectionReason').value = 'بيانات الحساب غير مطابقة للاسم المسجل في بطاقة الرقم القومي.'" type="button">
+              بيانات ناقصة
+            </button>
+</div>
+<!-- Rejection Textarea -->
+<textarea class="w-full p-3 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline text-body-sm font-body-sm focus:outline-none focus:ring-2 focus:ring-error shadow-inner transition-all" id="rejectionReason" placeholder="مثال: صورة البطاقة غير واضحة، أو انتهاء تاريخ صلاحية بطاقة الرقم القومي، يرجى إعادة رفع صورة واضحة بالضوء الطبيعي..." rows="2"></textarea>
+</div>
+</div>
+<!-- Modal Actions Bottom Sticky Bar -->
+<div class="p-space-lg bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md shrink-0">
+<button class="w-full sm:w-auto px-5 py-2.5 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors font-label-lg text-label-lg" onclick="document.getElementById('verificationModal').classList.add('hidden')" type="button">
+          إلغاء وإغلاق
+        </button>
+<div class="flex items-center gap-space-sm w-full sm:w-auto justify-end">
+<!-- Reject Confirmation Button -->
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-error-container text-on-error-container hover:bg-error hover:text-on-error transition-all font-label-lg text-label-lg shadow-sm" onclick="const r = document.getElementById('rejectionReason'); if(!r.value.trim()){ alert('يرجى كتابة أو اختيار سبب الرفض أولاً'); r.focus(); } else { alert('تم رفض الطلب وإرسال إشعار فوري للفني بالسبب: ' + r.value); document.getElementById('verificationModal').classList.add('hidden'); }" type="button">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+<span>تأكيد الرفض وإشعار الفني</span>
+</button>
+<!-- Approve Button (Primary Dark Botanical Palette) -->
+<button class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary transition-all font-label-lg text-label-lg shadow-sm" onclick="alert('تم توثيق حساب الفني (صابر عبد الرحمن مصطفى) بنجاح وإرسال شارة موثق له.'); document.getElementById('verificationModal').classList.add('hidden');" type="button">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+<span>موافقة وتوثيق الحساب</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Micro-interaction handlers for verification modal backdrop dismissal
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      const modal = document.getElementById('verificationModal');
+      if (modal && !modal.classList.contains('hidden')) {
+        modal.classList.add('hidden');
+      }
+    }
+  });
+</script></main></div></body></html>
