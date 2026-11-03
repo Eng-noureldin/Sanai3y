@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  sanai3y-sql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sanai3y-sql
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Sanai3y@Dev2026
+    ports:
+      - "1433:1433"
+    volumes:
+      - sanai3y-sql-data:/var/opt/mssql
+
+volumes:
+  sanai3y-sql-data:
