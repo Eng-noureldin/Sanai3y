@@ -28,7 +28,6 @@ public class AppDbContext : IdentityDbContext<User>
     {
         base.OnModelCreating(builder);
 
-        // يطبق تلقائياً كل ملفات الـ IEntityTypeConfiguration في هذا المشروع
         builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
     }
 }
