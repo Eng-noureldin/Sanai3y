@@ -8,6 +8,7 @@ using Sanai3y.Data;
 using Sanai3y.Data.Entities;
 using Sanai3y.Services.Auth;
 using Sanai3y.Services.Files;
+using Sanai3y.Services.Lookups;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,6 +54,7 @@ builder.Services.AddAuthorization();
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ILookupService, LookupService>();
 
 var app = builder.Build();
 
