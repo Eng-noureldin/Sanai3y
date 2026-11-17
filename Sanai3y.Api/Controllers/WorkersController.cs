@@ -60,4 +60,23 @@ public class WorkersController : ControllerBase
             message = "Worker profile updated successfully."
         });
     }
+
+    [Authorize(Roles = "Worker")]
+    [HttpPost("me/verification")]
+    [Consumes("multipart/form-data")]
+    public async Task<IActionResult> UploadVerification(
+        [FromForm] WorkerVerificationDto dto)
+    {
+        var workerId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        if (workerId is null)
+            return Unauthorized();
+
+        await _workerService.UploadVerificationAsync(workerId, dto);
+
+        return Ok(new
+        {
+            message = "Verification documents uploaded successfully."
+        });
+    }
 }
