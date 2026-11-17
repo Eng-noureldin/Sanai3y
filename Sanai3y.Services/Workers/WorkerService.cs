@@ -98,4 +98,36 @@ public class WorkerService : IWorkerService
             TotalCount = totalCount
         };
     }
+
+    public async Task<WorkerProfileDto?> GetProfileAsync(string workerId)
+    {
+        return await _context.WorkerProfiles
+            .AsNoTracking()
+            .Where(w =>
+                w.UserId == workerId &&
+                !w.User.IsBlocked)
+            .Select(w => new WorkerProfileDto
+            {
+                Id = w.UserId,
+                FullName = w.User.FullName,
+                PhotoUrl = w.PhotoUrl,
+                Bio = w.Bio,
+                CityName = w.City.Name,
+
+                Districts = w.Districts
+                    .Select(d => d.District.Name)
+                    .ToList(),
+
+                Professions = w.Professions
+                    .Select(p => p.Profession.Name)
+                    .ToList(),
+
+                ExperienceYears = w.ExperienceYears,
+                AvgRating = w.AvgRating,
+                RatingCount = w.RatingCount,
+                CompletedJobsCount = w.CompletedJobsCount,
+                IsAvailable = w.IsAvailable
+            })
+            .FirstOrDefaultAsync();
+    }
 }
