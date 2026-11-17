@@ -24,4 +24,20 @@ public class WorkersController : ControllerBase
 
         return Ok(result);
     }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetWorkerDetails(string id)
+    {
+        var worker = await _workerService.GetWorkerDetailsAsync(id);
+
+        if (worker == null)
+        {
+            return NotFound(new
+            {
+                message = "Worker not found."
+            });
+        }
+
+        return Ok(worker);
+    }
 }

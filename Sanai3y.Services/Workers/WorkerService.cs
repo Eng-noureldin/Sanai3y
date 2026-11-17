@@ -98,4 +98,54 @@ public class WorkerService : IWorkerService
             TotalCount = totalCount
         };
     }
+
+    public async Task<WorkerDetailsDto?> GetWorkerDetailsAsync(string id)
+    {
+        var worker = await _context.WorkerProfiles
+            .AsNoTracking()
+            .Where(w =>
+                w.UserId == id &&
+                w.VerificationStatus == VerificationStatus.Approved &&
+                !w.User.IsBlocked)
+            .Select(w => new WorkerDetailsDto
+            {
+                Id = w.UserId,
+                FullName = w.User.FullName,
+                PhotoUrl = w.PhotoUrl,
+                Bio = w.Bio,
+
+                CityName = w.City.Name,
+
+                Districts = w.Districts
+                    .Select(d => d.District.Name)
+                    .ToList(),
+
+                Professions = w.Professions
+                    .Select(p => p.Profession.Name)
+                    .ToList(),
+
+                ExperienceYears = w.ExperienceYears,
+                AvgRating = w.AvgRating,
+                RatingCount = w.RatingCount,
+                CompletedJobsCount = w.CompletedJobsCount,
+                IsAvailable = w.IsAvailable,
+
+                Reviews = _context.Reviews
+                    .Where(r =>
+                        r.WorkerId == w.UserId &&
+                        !r.IsHidden)
+                    .OrderByDescending(r => r.CreatedAt)
+                    .Select(r => new WorkerReviewDto
+                    {
+                        CustomerName = r.Customer.FullName,
+                        Stars = r.Stars,
+                        Comment = r.Comment,
+                        CreatedAt = r.CreatedAt
+                    })
+                    .ToList()
+            })
+            .FirstOrDefaultAsync();
+
+        return worker;
+    }
 }

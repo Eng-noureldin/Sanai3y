@@ -6,4 +6,6 @@ namespace Sanai3y.Services.Workers;
 public interface IWorkerService
 {
     Task<PagedResult<WorkerListItemDto>> GetWorkersAsync(WorkerQueryDto query);
+
+    Task<WorkerDetailsDto?> GetWorkerDetailsAsync(string id);
 }
