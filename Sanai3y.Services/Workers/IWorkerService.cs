@@ -9,4 +9,8 @@ public interface IWorkerService
     Task<PagedResult<WorkerListItemDto>> GetWorkersAsync(WorkerQueryDto query);
 
     Task<WorkerProfileDto?> GetProfileAsync(string workerId);
+
+    Task<bool> UpdateProfileAsync(
+        string workerId,
+        UpdateWorkerProfileDto dto);
 }

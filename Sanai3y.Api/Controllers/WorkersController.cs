@@ -23,7 +23,6 @@ public class WorkersController : ControllerBase
         [FromQuery] WorkerQueryDto query)
     {
         var result = await _workerService.GetWorkersAsync(query);
-
         return Ok(result);
     }
 
@@ -42,5 +41,23 @@ public class WorkersController : ControllerBase
             return NotFound(new { message = "Worker profile not found." });
 
         return Ok(profile);
+    }
+
+    [Authorize(Roles = "Worker")]
+    [HttpPut("me")]
+    public async Task<IActionResult> UpdateMyProfile(
+        [FromBody] UpdateWorkerProfileDto dto)
+    {
+        var workerId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        if (workerId is null)
+            return Unauthorized();
+
+        await _workerService.UpdateProfileAsync(workerId, dto);
+
+        return Ok(new
+        {
+            message = "Worker profile updated successfully."
+        });
     }
 }
