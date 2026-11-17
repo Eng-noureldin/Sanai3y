@@ -1,8 +1,10 @@
 
 using Microsoft.EntityFrameworkCore;
 using Sanai3y.Data;
+using Sanai3y.Data.Entities;
 using Sanai3y.Data.Enums;
 using Sanai3y.Services.common;
+using Sanai3y.Services.Common;
 using Sanai3y.Services.Dtos.Workers;
 
 namespace Sanai3y.Services.Workers;
@@ -97,5 +99,126 @@ public class WorkerService : IWorkerService
             PageSize = pageSize,
             TotalCount = totalCount
         };
+    }
+
+    public async Task<WorkerProfileDto?> GetProfileAsync(string workerId)
+    {
+        return await _context.WorkerProfiles
+            .AsNoTracking()
+            .Where(w =>
+                w.UserId == workerId &&
+                !w.User.IsBlocked)
+            .Select(w => new WorkerProfileDto
+            {
+                Id = w.UserId,
+                FullName = w.User.FullName,
+                PhotoUrl = w.PhotoUrl,
+                Bio = w.Bio,
+                CityName = w.City.Name,
+
+                Districts = w.Districts
+                    .Select(d => d.District.Name)
+                    .ToList(),
+
+                Professions = w.Professions
+                    .Select(p => p.Profession.Name)
+                    .ToList(),
+
+                ExperienceYears = w.ExperienceYears,
+                AvgRating = w.AvgRating,
+                RatingCount = w.RatingCount,
+                CompletedJobsCount = w.CompletedJobsCount,
+                IsAvailable = w.IsAvailable
+            })
+            .FirstOrDefaultAsync();
+    }
+
+    public async Task<bool> UpdateProfileAsync(
+        string workerId,
+        UpdateWorkerProfileDto dto)
+    {
+        // Find worker and load related data
+        var worker = await _context.WorkerProfiles
+            .Include(w => w.User)
+            .Include(w => w.Districts)
+            .Include(w => w.Professions)
+            .FirstOrDefaultAsync(w => w.UserId == workerId);
+
+        if (worker is null || worker.User.IsBlocked)
+            throw new BusinessException("Worker profile not found.");
+
+        // Validate full name
+        if (string.IsNullOrWhiteSpace(dto.FullName))
+            throw new BusinessException("Full name is required.");
+
+        // Validate selected city
+        var cityExists = await _context.Cities
+            .AnyAsync(c => c.Id == dto.CityId && c.IsActive);
+
+        if (!cityExists)
+            throw new BusinessException(
+                "Selected city does not exist or is inactive.");
+
+        // Validate selected districts
+        var districtIds = dto.DistrictIds.Distinct().ToList();
+
+        var validDistrictCount = await _context.Districts
+            .CountAsync(d =>
+                districtIds.Contains(d.Id) &&
+                d.CityId == dto.CityId &&
+                d.IsActive);
+
+        if (validDistrictCount != districtIds.Count)
+            throw new BusinessException(
+                "One or more selected districts are invalid or inactive.");
+
+        // Validate selected professions
+        var professionIds = dto.ProfessionIds.Distinct().ToList();
+
+        var validProfessionCount = await _context.Professions
+            .CountAsync(p =>
+                professionIds.Contains(p.Id) &&
+                p.IsActive);
+
+        if (validProfessionCount != professionIds.Count)
+            throw new BusinessException(
+                "One or more selected professions are invalid or inactive.");
+
+        // Update user information
+        worker.User.FullName = dto.FullName.Trim();
+
+        // Update worker profile information
+        worker.CityId = dto.CityId;
+        worker.Bio = dto.Bio;
+        worker.ExperienceYears = dto.ExperienceYears;
+        worker.PhotoUrl = dto.PhotoUrl;
+        worker.IsAvailable = dto.IsAvailable;
+
+        // Synchronize districts
+        _context.WorkerDistricts.RemoveRange(worker.Districts);
+
+        worker.Districts = districtIds
+            .Select(districtId => new WorkerDistrict
+            {
+                WorkerId = workerId,
+                DistrictId = districtId
+            })
+            .ToList();
+
+        // Synchronize professions
+        _context.WorkerProfessions.RemoveRange(worker.Professions);
+
+        worker.Professions = professionIds
+            .Select(professionId => new WorkerProfession
+            {
+                WorkerId = workerId,
+                ProfessionId = professionId
+            })
+            .ToList();
+
+        // Save changes
+        await _context.SaveChangesAsync();
+
+        return true;
     }
 }
