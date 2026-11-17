@@ -1,8 +1,10 @@
+
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
 using Sanai3y.Api.Middleware;
 using Sanai3y.Data;
 using Sanai3y.Data.Entities;
@@ -11,15 +13,34 @@ using Sanai3y.Services.Files;
 using Sanai3y.Services.Lookups;
 using Sanai3y.Services.Workers;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Description = "Enter your JWT token here.",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT"
+    });
+
+    options.AddSecurityRequirement(document =>
+        new OpenApiSecurityRequirement
+        {
+            [new OpenApiSecuritySchemeReference("Bearer", document)] = []
+        });
+});
+
 // Database Context
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // ASP.NET Core Identity
 builder.Services.AddIdentityCore<User>(options =>
@@ -33,14 +54,17 @@ builder.Services.AddIdentityCore<User>(options =>
 .AddEntityFrameworkStores<AppDbContext>();
 
 // JWT Authentication Configuration
-var jwtKey = builder.Configuration["Jwt:Key"] ?? "Sanai3y_Graduation_Project_Secret_Key_2026_Longer_Than_32_Characters!";
+var jwtKey = builder.Configuration["Jwt:Key"]
+    ?? "Sanai3y_Graduation_Project_Secret_Key_2026_Longer_Than_32_Characters!";
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(jwtKey)),
             ValidateIssuer = true,
             ValidIssuer = builder.Configuration["Jwt:Issuer"] ?? "Sanai3y",
             ValidateAudience = true,
@@ -52,7 +76,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
-// Dependency Injection for Developer 1 Services
+// Dependency Injection
 builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -67,6 +91,8 @@ app.UseMiddleware<ErrorHandlingMiddleware>();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 
     // Run DbSeeder automatically in Development mode
     using var scope = app.Services.CreateScope();
@@ -79,7 +105,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles(); // Required for serving public uploads
+app.UseStaticFiles();
 
 app.UseAuthentication();
 app.UseAuthorization();

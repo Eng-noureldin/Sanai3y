@@ -1,4 +1,3 @@
-
 using Sanai3y.Services.common;
 using Sanai3y.Services.Dtos.Workers;
 
@@ -13,4 +12,8 @@ public interface IWorkerService
     Task<bool> UpdateProfileAsync(
         string workerId,
         UpdateWorkerProfileDto dto);
+
+    Task UploadVerificationAsync(
+        string workerId,
+        WorkerVerificationDto dto);
 }

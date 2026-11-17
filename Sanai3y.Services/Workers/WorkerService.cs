@@ -6,16 +6,21 @@ using Sanai3y.Data.Enums;
 using Sanai3y.Services.common;
 using Sanai3y.Services.Common;
 using Sanai3y.Services.Dtos.Workers;
+using Sanai3y.Services.Files;
 
 namespace Sanai3y.Services.Workers;
 
 public class WorkerService : IWorkerService
 {
     private readonly AppDbContext _context;
+    private readonly IFileService _fileService;
 
-    public WorkerService(AppDbContext context)
+    public WorkerService(
+        AppDbContext context,
+        IFileService fileService)
     {
         _context = context;
+        _fileService = fileService;
     }
 
     public async Task<PagedResult<WorkerListItemDto>> GetWorkersAsync(
@@ -137,7 +142,6 @@ public class WorkerService : IWorkerService
         string workerId,
         UpdateWorkerProfileDto dto)
     {
-        // Find worker and load related data
         var worker = await _context.WorkerProfiles
             .Include(w => w.User)
             .Include(w => w.Districts)
@@ -147,11 +151,9 @@ public class WorkerService : IWorkerService
         if (worker is null || worker.User.IsBlocked)
             throw new BusinessException("Worker profile not found.");
 
-        // Validate full name
         if (string.IsNullOrWhiteSpace(dto.FullName))
             throw new BusinessException("Full name is required.");
 
-        // Validate selected city
         var cityExists = await _context.Cities
             .AnyAsync(c => c.Id == dto.CityId && c.IsActive);
 
@@ -159,7 +161,6 @@ public class WorkerService : IWorkerService
             throw new BusinessException(
                 "Selected city does not exist or is inactive.");
 
-        // Validate selected districts
         var districtIds = dto.DistrictIds.Distinct().ToList();
 
         var validDistrictCount = await _context.Districts
@@ -172,7 +173,6 @@ public class WorkerService : IWorkerService
             throw new BusinessException(
                 "One or more selected districts are invalid or inactive.");
 
-        // Validate selected professions
         var professionIds = dto.ProfessionIds.Distinct().ToList();
 
         var validProfessionCount = await _context.Professions
@@ -184,17 +184,14 @@ public class WorkerService : IWorkerService
             throw new BusinessException(
                 "One or more selected professions are invalid or inactive.");
 
-        // Update user information
         worker.User.FullName = dto.FullName.Trim();
 
-        // Update worker profile information
         worker.CityId = dto.CityId;
         worker.Bio = dto.Bio;
         worker.ExperienceYears = dto.ExperienceYears;
         worker.PhotoUrl = dto.PhotoUrl;
         worker.IsAvailable = dto.IsAvailable;
 
-        // Synchronize districts
         _context.WorkerDistricts.RemoveRange(worker.Districts);
 
         worker.Districts = districtIds
@@ -205,7 +202,6 @@ public class WorkerService : IWorkerService
             })
             .ToList();
 
-        // Synchronize professions
         _context.WorkerProfessions.RemoveRange(worker.Professions);
 
         worker.Professions = professionIds
@@ -216,9 +212,35 @@ public class WorkerService : IWorkerService
             })
             .ToList();
 
-        // Save changes
         await _context.SaveChangesAsync();
 
         return true;
+    }
+
+    public async Task UploadVerificationAsync(
+        string workerId,
+        WorkerVerificationDto dto)
+    {
+        var worker = await _context.WorkerProfiles
+            .Include(w => w.User)
+            .FirstOrDefaultAsync(w => w.UserId == workerId);
+
+        if (worker is null || worker.User.IsBlocked)
+            throw new BusinessException("Worker profile not found.");
+
+        var idPhotoPath = await _fileService.SaveImageAsync(
+            dto.IdPhoto,
+            isPrivate: true);
+
+        var selfiePath = await _fileService.SaveImageAsync(
+            dto.Selfie,
+            isPrivate: true);
+
+        worker.IdPhotoPath = idPhotoPath;
+        worker.SelfiePath = selfiePath;
+        worker.VerificationStatus = VerificationStatus.Pending;
+        worker.RejectReason = null;
+
+        await _context.SaveChangesAsync();
     }
 }
