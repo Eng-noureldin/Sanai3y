@@ -1,0 +1,30 @@
+name: Sanai3y Backend CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Setup .NET 10 SDK
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      # 3. Restore NuGet dependencies
+      - name: Restore dependencies
+        run: dotnet restore Sanai3y.sln
+
+      # 4. Build the entire solution
+      - name: Build solution
+        run: dotnet build Sanai3y.sln --no-restore --configuration Release

@@ -1,3 +1,4 @@
+
 using Sanai3y.Services.common;
 using Sanai3y.Services.Dtos.Workers;
 
@@ -8,4 +9,10 @@ public interface IWorkerService
     Task<PagedResult<WorkerListItemDto>> GetWorkersAsync(WorkerQueryDto query);
 
     Task<WorkerDetailsDto?> GetWorkerDetailsAsync(string id);
+}
+    Task<WorkerProfileDto?> GetProfileAsync(string workerId);
+
+    Task<bool> UpdateProfileAsync(
+        string workerId,
+        UpdateWorkerProfileDto dto);
 }
