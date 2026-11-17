@@ -21,10 +21,7 @@ public class WorkerService : IWorkerService
     public async Task<PagedResult<WorkerListItemDto>> GetWorkersAsync(
         WorkerQueryDto query)
     {
-        var page = Math.Max(query.Page, 1);
-        var pageSize = Math.Clamp(query.PageSize, 1, 50);
-
-        var workers = _context.WorkerProfiles
+        var workersQuery = _context.WorkerProfiles
             .AsNoTracking()
             .Where(w =>
                 w.VerificationStatus == VerificationStatus.Approved &&
@@ -32,71 +29,65 @@ public class WorkerService : IWorkerService
 
         if (!string.IsNullOrWhiteSpace(query.Search))
         {
-            workers = workers.Where(w =>
+            workersQuery = workersQuery.Where(w =>
                 w.User.FullName.Contains(query.Search));
         }
 
         if (query.CityId.HasValue)
         {
-            workers = workers.Where(w =>
+            workersQuery = workersQuery.Where(w =>
                 w.CityId == query.CityId.Value);
         }
 
         if (query.DistrictId.HasValue)
         {
-            workers = workers.Where(w =>
+            workersQuery = workersQuery.Where(w =>
                 w.Districts.Any(d =>
                     d.DistrictId == query.DistrictId.Value));
         }
 
         if (query.ProfessionId.HasValue)
         {
-            workers = workers.Where(w =>
+            workersQuery = workersQuery.Where(w =>
                 w.Professions.Any(p =>
                     p.ProfessionId == query.ProfessionId.Value));
         }
 
         if (query.MinRating.HasValue)
         {
-            workers = workers.Where(w =>
+            workersQuery = workersQuery.Where(w =>
                 w.AvgRating >= query.MinRating.Value);
         }
 
         if (query.IsAvailable.HasValue)
         {
-            workers = workers.Where(w =>
+            workersQuery = workersQuery.Where(w =>
                 w.IsAvailable == query.IsAvailable.Value);
         }
 
-        var totalCount = await workers.CountAsync();
+        var totalCount = await workersQuery.CountAsync();
 
-        var items = await workers
+        var workers = await workersQuery
             .OrderByDescending(w => w.AvgRating)
-            .ThenBy(w => w.User.FullName)
-            .Skip((page - 1) * pageSize)
-            .Take(pageSize)
+            .Skip((query.Page - 1) * query.PageSize)
+            .Take(query.PageSize)
             .Select(w => new WorkerListItemDto
             {
                 Id = w.UserId,
                 FullName = w.User.FullName,
                 PhotoUrl = w.PhotoUrl,
                 CityName = w.City.Name,
-                Professions = w.Professions
-                    .Select(p => p.Profession.Name)
-                    .ToList(),
-                ExperienceYears = w.ExperienceYears,
                 AvgRating = w.AvgRating,
                 RatingCount = w.RatingCount,
-                CompletedJobsCount = w.CompletedJobsCount,
                 IsAvailable = w.IsAvailable
             })
             .ToListAsync();
 
         return new PagedResult<WorkerListItemDto>
         {
-            Items = items,
-            Page = page,
-            PageSize = pageSize,
+            Items = workers,
+            Page = query.Page,
+            PageSize = query.PageSize,
             TotalCount = totalCount
         };
     }
@@ -110,6 +101,51 @@ public class WorkerService : IWorkerService
                 w.VerificationStatus == VerificationStatus.Approved &&
                 !w.User.IsBlocked)
             .Select(w => new WorkerDetailsDto
+            {
+                Id = w.UserId,
+                FullName = w.User.FullName,
+                PhotoUrl = w.PhotoUrl,
+                Bio = w.Bio,
+
+                CityName = w.City.Name,
+
+                Districts = w.Districts
+                    .Select(d => d.District.Name)
+                    .ToList(),
+
+                Professions = w.Professions
+                    .Select(p => p.Profession.Name)
+                    .ToList(),
+
+                ExperienceYears = w.ExperienceYears,
+                AvgRating = w.AvgRating,
+                RatingCount = w.RatingCount,
+                CompletedJobsCount = w.CompletedJobsCount,
+                IsAvailable = w.IsAvailable
+            })
+            .FirstOrDefaultAsync();
+
+        if (worker == null)
+            return null;
+
+        worker.Reviews = await _context.Reviews
+            .AsNoTracking()
+            .Where(r =>
+                r.WorkerId == id &&
+                !r.IsHidden)
+            .OrderByDescending(r => r.CreatedAt)
+            .Select(r => new WorkerReviewDto
+            {
+                CustomerName = r.Customer.FullName,
+                Stars = r.Stars,
+                Comment = r.Comment,
+                CreatedAt = r.CreatedAt
+            })
+            .ToListAsync();
+
+        return worker;
+    }
+
     public async Task<WorkerProfileDto?> GetProfileAsync(string workerId)
     {
         return await _context.WorkerProfiles
@@ -138,25 +174,6 @@ public class WorkerService : IWorkerService
                 AvgRating = w.AvgRating,
                 RatingCount = w.RatingCount,
                 CompletedJobsCount = w.CompletedJobsCount,
-                IsAvailable = w.IsAvailable,
-
-                Reviews = _context.Reviews
-                    .Where(r =>
-                        r.WorkerId == w.UserId &&
-                        !r.IsHidden)
-                    .OrderByDescending(r => r.CreatedAt)
-                    .Select(r => new WorkerReviewDto
-                    {
-                        CustomerName = r.Customer.FullName,
-                        Stars = r.Stars,
-                        Comment = r.Comment,
-                        CreatedAt = r.CreatedAt
-                    })
-                    .ToList()
-            })
-            .FirstOrDefaultAsync();
-
-        return worker;
                 IsAvailable = w.IsAvailable
             })
             .FirstOrDefaultAsync();
@@ -166,86 +183,81 @@ public class WorkerService : IWorkerService
         string workerId,
         UpdateWorkerProfileDto dto)
     {
-        // Find worker and load related data
         var worker = await _context.WorkerProfiles
             .Include(w => w.User)
             .Include(w => w.Districts)
             .Include(w => w.Professions)
             .FirstOrDefaultAsync(w => w.UserId == workerId);
 
-        if (worker is null || worker.User.IsBlocked)
-            throw new BusinessException("Worker profile not found.");
+        if (worker == null)
+            return false;
 
-        // Validate full name
-        if (string.IsNullOrWhiteSpace(dto.FullName))
-            throw new BusinessException("Full name is required.");
-
-        // Validate selected city
-        var cityExists = await _context.Cities
-            .AnyAsync(c => c.Id == dto.CityId && c.IsActive);
-
-        if (!cityExists)
-            throw new BusinessException(
-                "Selected city does not exist or is inactive.");
-
-        // Validate selected districts
-        var districtIds = dto.DistrictIds.Distinct().ToList();
-
-        var validDistrictCount = await _context.Districts
-            .CountAsync(d =>
-                districtIds.Contains(d.Id) &&
-                d.CityId == dto.CityId &&
-                d.IsActive);
-
-        if (validDistrictCount != districtIds.Count)
-            throw new BusinessException(
-                "One or more selected districts are invalid or inactive.");
-
-        // Validate selected professions
-        var professionIds = dto.ProfessionIds.Distinct().ToList();
-
-        var validProfessionCount = await _context.Professions
-            .CountAsync(p =>
-                professionIds.Contains(p.Id) &&
-                p.IsActive);
-
-        if (validProfessionCount != professionIds.Count)
-            throw new BusinessException(
-                "One or more selected professions are invalid or inactive.");
-
-        // Update user information
-        worker.User.FullName = dto.FullName.Trim();
-
-        // Update worker profile information
-        worker.CityId = dto.CityId;
+        worker.User.FullName = dto.FullName;
         worker.Bio = dto.Bio;
         worker.ExperienceYears = dto.ExperienceYears;
-        worker.PhotoUrl = dto.PhotoUrl;
+        worker.CityId = dto.CityId;
         worker.IsAvailable = dto.IsAvailable;
 
-        // Synchronize districts
+        if (dto.PhotoUrl != null)
+            worker.PhotoUrl = dto.PhotoUrl;
+
+        var cityExists = await _context.Cities
+            .AnyAsync(c =>
+                c.Id == dto.CityId &&
+                c.IsActive);
+
+        if (!cityExists)
+            throw new BusinessException("Invalid city.");
+
+        var districtsAreValid = await _context.Districts
+            .Where(d => dto.DistrictIds.Contains(d.Id))
+            .AllAsync(d =>
+                d.IsActive &&
+                d.CityId == dto.CityId);
+
+        var districtCount = await _context.Districts
+            .CountAsync(d => dto.DistrictIds.Contains(d.Id));
+
+        if (!districtsAreValid ||
+            districtCount != dto.DistrictIds.Distinct().Count())
+        {
+            throw new BusinessException("Invalid districts.");
+        }
+
+        var professionsAreValid = await _context.Professions
+            .Where(p => dto.ProfessionIds.Contains(p.Id))
+            .AllAsync(p => p.IsActive);
+
+        var professionCount = await _context.Professions
+            .CountAsync(p => dto.ProfessionIds.Contains(p.Id));
+
+        if (!professionsAreValid ||
+            professionCount != dto.ProfessionIds.Distinct().Count())
+        {
+            throw new BusinessException("Invalid professions.");
+        }
+
         _context.WorkerDistricts.RemoveRange(worker.Districts);
-
-        worker.Districts = districtIds
-            .Select(districtId => new WorkerDistrict
-            {
-                WorkerId = workerId,
-                DistrictId = districtId
-            })
-            .ToList();
-
-        // Synchronize professions
         _context.WorkerProfessions.RemoveRange(worker.Professions);
 
-        worker.Professions = professionIds
-            .Select(professionId => new WorkerProfession
+        worker.Districts = dto.DistrictIds
+            .Distinct()
+            .Select(id => new WorkerDistrict
             {
                 WorkerId = workerId,
-                ProfessionId = professionId
+                DistrictId = id
             })
             .ToList();
 
-        // Save changes
+        worker.Professions = dto.ProfessionIds
+            .Distinct()
+            .Select(id => new WorkerProfession
+            {
+                WorkerId = workerId,
+                ProfessionId = id
+            })
+            .ToList();
+
         await _context.SaveChangesAsync();
 
         return true;

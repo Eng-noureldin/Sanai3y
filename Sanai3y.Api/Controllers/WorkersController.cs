@@ -40,6 +40,8 @@ public class WorkersController : ControllerBase
         }
 
         return Ok(worker);
+    }
+
     [Authorize(Roles = "Worker")]
     [HttpGet("me")]
     public async Task<IActionResult> GetMyProfile()
@@ -52,7 +54,10 @@ public class WorkersController : ControllerBase
         var profile = await _workerService.GetProfileAsync(workerId);
 
         if (profile is null)
-            return NotFound(new { message = "Worker profile not found." });
+            return NotFound(new
+            {
+                message = "Worker profile not found."
+            });
 
         return Ok(profile);
     }
