@@ -1,4 +1,3 @@
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +8,9 @@ using Sanai3y.Data.Entities;
 using Sanai3y.Services.Auth;
 using Sanai3y.Services.Files;
 using Sanai3y.Services.Lookups;
+using Sanai3y.Services.Requests;
 using Sanai3y.Services.Workers;
+using System.Text;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -58,6 +59,7 @@ builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ILookupService, LookupService>();
 builder.Services.AddScoped<IWorkerService, WorkerService>();
+builder.Services.AddScoped<IRequestService, RequestService>();
 
 var app = builder.Build();
 
